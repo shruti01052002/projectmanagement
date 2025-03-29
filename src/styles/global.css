@@ -1,0 +1,7 @@
+/* Global styles can remain here if needed, but remove component-specific imports */
+/* Example global styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}

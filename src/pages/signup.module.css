@@ -1,0 +1,236 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+}
+
+.leftSection {
+  flex: 1;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.leftSection::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.leftSection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.leftSection p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  text-align: center;
+  max-width: 400px;
+  position: relative;
+  z-index: 1;
+}
+
+.rightSection {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: #f8f9fa;
+}
+
+.form {
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form h1 {
+  color: #1e293b;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.form input {
+  width: 90%;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: white;
+  color: #1e293b;
+}
+
+.form input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  outline: none;
+}
+
+.form input::placeholder {
+  color: #94a3b8;
+}
+
+.form button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.form button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.form button:hover::before {
+  left: 100%;
+}
+
+.form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+
+.error {
+  color: #ef4444;
+  font-size: 14px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.error::before {
+  content: '⚠';
+  color: #ef4444;
+  font-size: 16px;
+}
+
+.form p {
+  text-align: center;
+  color: #64748b;
+  font-size: 15px;
+}
+
+.form a {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.form a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.form a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 16px;
+  }
+
+  .form {
+    padding: 32px 24px;
+  }
+
+  .form h1 {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+
+  .form input {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+
+  .form button {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+/* Landscape Mode */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  .container {
+    padding: 16px;
+    min-height: auto;
+  }
+
+  .form {
+    margin: 16px auto;
+    padding: 24px;
+  }
+
+  .form h1 {
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+  }
+
+  .form input {
+    padding: 12px 16px;
+    margin-bottom: 16px;
+  }
+}
