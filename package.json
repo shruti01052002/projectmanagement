@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "clean": "rimraf .next out",
+    "build": "cross-env NODE_ENV=production next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "npm run build && firebase deploy"
+    "export": "next build",
+    "deploy": "cross-env NODE_ENV=production next build && firebase deploy",
+    "deploy:fast": "cross-env NODE_ENV=production next build --no-lint && firebase deploy"
   },
   "dependencies": {
     "firebase": "^10.8.0",
@@ -19,9 +22,11 @@
     "react-hook-form": "^7.50.1"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.1.0",
-    "tailwindcss": "^3.4.1",
-    "postcss": "^8.4.35"
+    "postcss": "^8.4.35",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^3.4.1"
   }
 }
