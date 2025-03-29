@@ -34,3 +34,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# dataconnect
+/dataconnect/dataconnect.yaml
+/dataconnect/connector/**/*
+/dataconnect-generated/**/*
